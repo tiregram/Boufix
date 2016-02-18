@@ -1,0 +1,19 @@
+
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'snackix/css/style.css' %}" />
+
+<div>
+{% if menbers %}  
+
+{% for menber in menbers %}
+<div>
+  <h4>{{ menber.name }}</h4>
+  <h5>{{ menber.value }}</h5>
+</div>
+{% endfor%}
+
+{% else %}
+<h2 class="error">No User....</h2><h4>go to the admin side</h4>
+{% endif %}
+</div>

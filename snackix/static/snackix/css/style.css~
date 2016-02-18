@@ -1,0 +1,233 @@
+
+body{
+    background:#555;
+}
+div.contener
+{    
+    display: -webkit-flex;
+    display: flex;
+
+    overflow: hidden;
+    
+    -webkit-flex-flow: column wrap;
+    flex-flow: column wrap;
+    
+    margin: 10%;
+    margin-top:0px;
+    height:90%;
+}
+
+html ,body {
+    height: 100%;
+    overflow:hidden
+}
+
+div.contener > div.member
+{
+    margin: 10px;
+    max-width: 400px;
+    
+
+    text-align:center;
+    
+    border:1px black solid;
+    box-shadow: 3px 3px 3px;
+
+}
+
+
+div.control > div.next
+{
+    right:0px;
+}
+
+div.control > div.next ,
+div.control > div.prev
+   {
+       position: absolute;
+       margin-top:10%;
+       margin-bottom:10%;
+       top:0px;
+       bottom:0px;
+       width:9%;
+       border: 1px red solid;
+   }
+
+
+div.alphabet{
+    text-align:center;
+    width: 100%;
+}
+
+
+div.alphabet > div.leters 
+{
+    display: flex;
+    padding-top:20px;
+    padding-bottom:20px;
+    
+}
+
+div.alphabet > div.leters > div
+{
+    
+    width:40px;
+    height:40px;
+    
+    border: 3px #777 solid;
+    box-shadow: 3px 3px 3px;
+    border-radius:50%;
+    font-size:35px;
+    margin-right:6px;
+}
+
+div.alphabet > div.leters>div:nth-child(even){
+    background:#999;
+   
+}
+
+div.alphabet > div.leters> div:nth-child(odd){
+    background:#444;  
+}
+
+
+div.alphabet{
+
+    position:absolute;   
+    bottom:0px;
+
+}
+
+div.panel
+{
+    position:absolute;
+    top:50px;
+    right:50px;
+    left:50px;
+    bottom:50px;
+    background: red;
+}
+
+div.panel > div.choses
+{
+    display:flex;
+    flex-flow: raw wrap;
+}
+
+div.panel > div.choses > div.chose
+{
+    flex:1;
+    margin:5px;
+    background :green;
+    height:100px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    
+}
+
+div.panel > div.range > div 
+{
+    background:green;
+    height:80px;
+}
+
+
+div.panel > div.range > div >button
+{
+    float:right;
+    width:20%;
+    height:80px;
+}
+
+div.panel > div.range > div >input
+{
+    width:60%;
+    height:80px;
+}
+
+div.panel > div.range > div >output 
+{
+    vertical-align:top;
+    font-size:80px;
+    vertical-align:center;
+    width:10%;
+    height:80px;
+}
+
+div.panel > div.range > div > spam
+{
+    vertical-align:top;
+    font-size:80px;
+    vertical-align:center;
+
+    width:10%;
+    height:80px;
+}
+
+
+
+div.hide
+{
+    display: none !important;
+}
+
+
+
+
+
+
+
+
+
+
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  background:none;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 27.5px;
+  cursor: pointer;
+
+  background: #838788;
+  border-radius: 0px;
+  border: 5.4px solid #ffffff;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  border: 5.2px solid #e5fdff;
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+  background: red;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -16.65px;
+}
+
+
+div#messContener
+{
+    position:absolute;
+    bottom:100px;
+    transition:all;
+    right:0px;
+    left:0px;
+    
+}
+
+div#messContener > div
+{
+    background:white;
+    width:90%;
+    padding: 10px;
+    font-size:20px;
+    margin-right:auto;
+    margin-left:auto;
+    margin-top:10px;
+}

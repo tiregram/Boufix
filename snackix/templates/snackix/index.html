@@ -1,0 +1,100 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <link href="{% static 'snackix/css/style.css' %}" rel="stylesheet"/>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="control">
+      <div class="next"></div>
+      <div class="prev"></div>
+      <div class="alphabet">
+	
+	<div  id="leterContener" class="leters">
+	  <div class="leter01">A</div>
+	  <div class="leter02">B</div>
+	  <div class="leter03">C</div>
+	  <div class="leter04">D</div>
+	  <div class="leter05">E</div>
+	  <div class="leter06">F</div>
+	  <div class="leter07">G</div>
+	  <div class="leter08">H</div>
+	  <div class="leter09">I</div>
+	  <div class="leter10">J</div>
+	  <div class="leter11">K</div>
+	  <div class="leter12">L</div>
+	  <div class="leter13">M</div>
+	  <div class="leter14">N</div>
+	  <div class="leter15">O</div>
+	  <div class="leter16">P</div>
+	  <div class="leter17">K</div>
+	  <div class="leter18">R</div>
+	  <div class="leter19">S</div>
+	  <div class="leter20">T</div>
+	  <div class="leter21">U</div>
+	  <div class="leter22">V</div>
+	  <div class="leter23">W</div>
+	  <div class="leter24">x</div>
+	  <div class="leter25">Y</div>
+	  <div class="leter26">Z</div>
+	</div>
+      </div>
+    </div>
+    <div id="cont" class="contener">
+    </div>
+
+
+    
+    <div id="panelChose" class="panel hide">
+
+      <div id="closePanel" class="close">X</div>
+      
+      <h2 class="name">none</h2>
+      <h4>Votre Compte:
+      <b class="value">none</b></h4>
+      <div class="range">
+	
+	<div class="add">
+	  <spam>R</spam>
+	  <input oninput="outAdd.value = rangeAdd.value"
+		 name="rangeAdd"
+		 id="rangeAdd"
+		 type="range"
+		 min="1"
+		 max="20"
+		 value="1">
+	    <output id="outAdd" name="outAdd">1</output>
+	    <button id="buttonPanelAdd">+</button>
+	</div>
+	<br>
+	<div class="sub">
+	  <spam>R</spam>
+	  <input oninput="outSub.value = rangeSub.value"
+		 name="rangeSub"
+		 id="rangeSub"
+		 type="range"
+		 min="1"
+		 max="20"
+		 value="1">
+	    <output id="outSub" name="outSub">1</output>
+	    <button id="buttonPanelSub" >-</button>
+	</div>
+
+	
+      </div>
+      <div class="choses">
+
+      </div>
+
+    </div>
+
+
+    <div id="messContener"></div>
+    
+    <script src="{% static 'snackix/js/message.js' %}"></script>
+    <script src="{% static 'snackix/js/panelChose.js' %}"></script>
+    <script src="{% static 'snackix/js/managerConso.js' %}"></script>
+  </body>
+</html>
