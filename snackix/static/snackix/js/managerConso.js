@@ -31,22 +31,24 @@ window.onload = function() {
 					  }
 					 );	
     }
-
-
     
 }
 
 function refrechMember(element)
 {
-    if(httpRequest.readyState == 4)
+
+    if(element.srcElement.readyState == 4)
     {
-	if(httpRequest.status == 200)
+	if(element.srcElement.status == 200)
 	{
+	    console.log(element.srcElement.responseText);
+	    console.log(httpRequestPanel.responseText);
+	    
 	    
 	    var datab = element.srcElement.responseText;
 	    
 	    var data = JSON.parse(datab);
-	    console.log(data);
+
 
 	    window.memberList[data.user_name[0]][data.user_name].value = data.new_value;
 	    messageDraw(data);

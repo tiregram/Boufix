@@ -6,7 +6,7 @@ function panelInit()
     httpRequestPanel.send();
     
     var buttonPanelSub = document.getElementById("buttonPanelSub");
-
+    
     buttonPanelSub.addEventListener("click",
 				    function(event)
 				    {
@@ -123,4 +123,40 @@ function aplyProduct(elem)
 	httpRequest.send();
 	panelClose();
     }
+}
+
+
+function askForshowMyLog()
+{
+    if(window.currentUser != null ){
+	httpRequest.onreadystatechange = refrechMember;
+	console.log(elem.target);
+	httpRequest.open('GET','http://127.0.0.1:8000/panel/aply/'+window.currentUser+'/'+elem.target.id);
+	httpRequest.send();
+
+    }
+}
+
+function displayMyLog()
+{
+ 
+    if(httpRequest.readyState == 4)
+    {
+	if(httpRequest.status == 200)
+	{
+	    openLog();	    
+	}
+    }
+    
+}
+
+
+function openLog()
+{
+
+}
+
+function closeLog()
+{
+
 }
