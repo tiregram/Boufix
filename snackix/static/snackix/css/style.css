@@ -1,235 +1,270 @@
+.panel{
+    background: white;
+    transition: all 0.5s;
+    position: fixed;
 
-body{
-    background:#BBDDDD;
-}
-div.contener
-{    
-    display: -webkit-flex;
-    display: flex;
+    right:20%;
+    left:20%;
+    height:80%;
 
-    overflow: hidden;
-    
-    -webkit-flex-flow: column wrap;
-    flex-flow: column wrap;
-    
-    margin: 10%;
-    margin-top:0px;
-    height:90%;
+    box-shadow:#DDD 2px -2px 0px;
+    border: 3px #DDD solid;
+
 }
 
-html ,body {
-    height: 100%;
-    overflow:hidden
+
+.hide{
+    top:-100%;
+}
+
+.show{
+    top:50px;    
+}
+
+div.panel#panelChose
+{
+    padding-top:50px;
+}
+
+div.panel#logPanel>div#logList
+{
+    position:absolute;
+    bottom:0px;
+    top:50px;
+    right:50px;
+    left:50px;
+    overflow-y:scroll;
+}
+
+
+.panel>.close
+{
+    position:absolute;
+    right:0px;
+    top:0px;
+
+    width:50px;
+    height:50px;
+    font-size:50px;
+    text-align:center;
+}
+
+.panel>.option
+{
+    position:absolute;
+    left:0px;
+    top:0px;
+    
+    width:50px;
+    height:50px;
+    font-size:50px;
+    text-align:center;
+}
+
+
+.panel>div.choses
+{
+    display:flex;
+    flex-wrap:wrap;    
+}
+
+.panel>div.choses > div
+{
+    
+    box-shadow:#DDD 2px -2px 0px;
+    border: 3px #DDD solid;
+
+    width:100px;
+    height:100px;
+    background-size:contain;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-color:white;
+    margin:3px;
+    text-align:center;
+    vertical-align:bottom;
+    
+}
+
+.panel>div.range>div
+{
+    background:white;
+    margin:3px;
+    height:100px;
+    flex-wrap:justify-content;
+    display:flex;
+
+}
+.panel > div.range > div > *
+{
+    flex:1;
+}
+
+.panel > div.range > div > input
+{
+    flex:8;
+}
+
+.panel > div.range > div > button
+{
+    flex:2;
+}
+
+
+div.contener{
+    position:absolute;
+    top:0;
+    right:0;
+    left:0;
+    bottom:0;
+    z-index:-1;
+    padding: 3%;
+    background:white;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: space-around;
 }
 
 div.contener > div.member
 {
-    margin: 10px;
-    max-width: 400px;
-    background:#665555;
-
-    text-align:center;
-    
-    border:1px black solid;
-    box-shadow: 3px 3px 3px;
-
+    box-shadow:#DDD 2px -2px 0px;
+    border: 3px #DDD solid;
+    animation:slide-up 0.5s;
+    display:flex;
+    height: 80px;
+    min-width:200px;
+    margin:3px;
 }
 
-
-div.control > div.next
+div.contener > div.member>h3
 {
-    right:0px;
+    flex:6;
 }
 
-div.control > div.next ,
-div.control > div.prev
-   {
-       position: absolute;
-       margin-top:10%;
-       margin-bottom:10%;
-       top:0px;
-       bottom:0px;
-       width:9%;
-       border: 1px red solid;
-   }
-
+div.contener > div.member>img
+{
+    flex:4;
+    background:#EEE;
+    height:80px;
+    border-top-right-radius:5%;
+    border-bottom-right-radius:5%;
+}
 
 div.alphabet{
-    text-align:center;
-    width: 100%;
+    position:fixed;
+    bottom:0px;
+    right:0px;
+    left:0px;
 }
 
 
-div.alphabet > div.leters 
+div.alphabet > div#leterContener
 {
     display: flex;
-    padding-top:20px;
-    padding-bottom:20px;
     
 }
+div.alphabet > div#leterContenere > div:before{
 
-div.alphabet > div.leters > div
-{
-    
-    width:40px;
-    height:40px;
-    
-    border: 3px #777 solid;
-    box-shadow: 3px 3px 3px;
-    border-radius:50%;
-    font-size:35px;
-    margin-right:6px;
+    content: "";
+    display: block;
+    padding-bottom: 100%;
 }
 
-div.alphabet > div.leters>div:nth-child(even){
-    background:#999;
-   
-}
-
-div.alphabet > div.leters> div:nth-child(odd){
-    background:#444;  
-}
-
-
-div.alphabet{
-
-    position:absolute;   
-    bottom:0px;
-
-}
-
-div.panel
-{
-    position:absolute;
-    top:50px;
-    right:50px;
-    left:50px;
-    bottom:50px;
-    background:#999999;
-}
-
-div.panel > div.choses
-{
-    display:flex;
-    flex-flow: raw wrap;
-}
-
-div.panel > div.choses > div.chose
+div.alphabet > div#leterContener > div
 {
     flex:1;
-    margin:5px;
-    background : white;
-    box-shadow:4px 4px 4px #666677;
-    border-radius: 5px;
-    height:100px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
+    height:50px;
     
+    margin:1px;
+
+    text-align:center;
+    font-size:30px;
+    border-radius:30%;
+    transition:all 0.5s;
+    color:#BBBBBB;
+    overflow: hidden;
+    
+    box-shadow:#DDD 2px -2px 0px;
+    
+
+    border-left: 3px #DDD solid;
 }
 
-div.panel > div.range > div 
+div.alphabet > div#leterContener > div:hover
 {
-    background:green;
-    height:80px;
-}
-
-
-div.panel > div.range > div >button
-{
-    float:right;
-    width:20%;
-    height:80px;
-}
-
-div.panel > div.range > div >input
-{
-    width:60%;
-    height:80px;
-}
-
-div.panel > div.range > div >output 
-{
-    vertical-align:top;
-    font-size:80px;
-    vertical-align:center;
-    width:10%;
-    height:80px;
-}
-
-div.panel > div.range > div > spam
-{
-    vertical-align:top;
-    font-size:80px;
-    vertical-align:center;
-
-    width:10%;
-    height:80px;
-}
-
-
-
-div.hide
-{
-    display: none !important;
-}
-
-
-
-
-
-
-
-
-
-
-input[type=range] {
-  -webkit-appearance: none;
-  width: 100%;
-  background:none;
-}
-input[type=range]:focus {
-  outline: none;
-}
-input[type=range]::-webkit-slider-runnable-track {
-  width: 100%;
-  height: 27.5px;
-  cursor: pointer;
-
-  background: #838788;
-  border-radius: 0px;
-  border: 5.4px solid #ffffff;
-}
-
-input[type=range]::-webkit-slider-thumb {
-  border: 5.2px solid #e5fdff;
-  height: 50px;
-  width: 50px;
-  border-radius: 50px;
-  background: red;
-  cursor: pointer;
-  -webkit-appearance: none;
-  margin-top: -16.65px;
+    background:#755;
+    flex:2;
+    box-shadow:white 0px 0px 0px;
 }
 
 
 div#messContener
 {
-    position:absolute;
-    bottom:100px;
-    transition:all;
-    right:0px;
-    left:0px;
+    position:fixed;
+    top:0px;
     
+    right:30%;
+    left:30%;
+    width:40%;
+    display:flex;
+    flex-direction:column;
 }
+
 
 div#messContener > div
 {
-    background:white;
-    width:90%;
-    padding: 10px;
-    font-size:20px;
-    margin-right:auto;
-    margin-left:auto;
-    margin-top:10px;
+    transition: all 1s;
+    height:50px;
+    padding:5px;
+    margin:2px;
+    background:#ccc;
+    text-align:center;
+    display:block;
+    border:2px #ddd solid;
+    box-shadow: #bbb 5px 5px 10px;
+    
+
+}
+
+
+@keyframes slide-up{
+    from{
+	transform: translate3d(0,-100px,0);
+	opacity:0.0;}
+    to{
+	transform: translate3d(0,0,0);
+	opacity:1;
+      }
+}
+
+
+@keyframes slide{
+    from{
+	transform: translate3d(0,100px,0);
+	opacity:0.0;}
+    to{
+	transform: translate3d(0,0,0);
+	opacity:1;
+      }
+}
+
+div#messContener > div.new
+{
+    animation:slide 0.7s;
+    max-height: 50px;
+}
+
+div#messContener > div.old
+{
+    max-height: 0 px;
+    opacity:0;
+    height:0px;
+    margin:0px;
+    padding:0px;
+}
+
+
+div.panel#logPanel
+{
+    z-index:3;
 }

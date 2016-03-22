@@ -8,7 +8,7 @@ import json
 # Create your views here.
 def panel(request):    
     all_menbers = Member.objects.all()
-    print(all_menbers)
+    
     context = {"menbers":all_menbers}
     return render(request,'snackix/index.html',context)
 
@@ -76,7 +76,27 @@ def ajax_add_credit(self,user_name,value):
     Logs.objects.create(date=dt.datetime.today(),message="add from ajax call "+data["value"], user = a,product = Product.objects.get(name="perso"))
     return HttpResponse(json.dumps(data), content_type='application/json')    
     
-       
+
+
+def ajax_get_log_menber(self,user_name):
+    # on retouve le membre
+    usr = Member.objects.get(name=user_name);
+
+    lgs = Logs.objects.all().filter(user=usr)
+
+    copy = []
+    for a in lgs:
+        
+        one = dict()
+        one["date"]=str(a.date)
+        one["product"]=str(a.product)
+        one["message"]=a.message
+        copy.append(one);
+
+    copy.reverse()
+    data = json.dumps(copy)
+    return HttpResponse(data, content_type='application/json')    
+    
 def ajax_get_all_menber(self):
     members = Member.objects.all()
     data = serializers.serialize("json", members)
@@ -84,7 +104,7 @@ def ajax_get_all_menber(self):
 
 
 def ajax_get_all_product(self):
-    product = Product.objects.all().exclude(hide=True)
+    product = Product.objects.all().exclude(hide=True).order_by('price','name')
     data = serializers.serialize("json", product)
     return HttpResponse(data, content_type='application/json')
 

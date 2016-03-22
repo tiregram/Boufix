@@ -7,7 +7,7 @@ class Member(models.Model):
     user_Acount_inside_club_Nix = models.ForeignKey(User)
     value = models.IntegerField()
     last_consomation = models.DateField();
-    
+    image = models.ImageField(upload_to="static")    
     def __str__(self):
         return self.name
 

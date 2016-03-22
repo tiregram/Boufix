@@ -11,6 +11,7 @@ window.onload = function() {
     httpRequest.open('GET','http://127.0.0.1:8000/panel/ajax/all',true);
     httpRequest.send();
 
+    logPanelInit();
     panelInit();
     
     var cont = document.getElementById("cont");
@@ -37,15 +38,13 @@ window.onload = function() {
 function refrechMember(element)
 {
 
-    if(element.srcElement.readyState == 4)
+    if(element.target.readyState == 4)
     {
-	if(element.srcElement.status == 200)
+	if(element.target.status == 200)
 	{
-	    console.log(element.srcElement.responseText);
-	    console.log(httpRequestPanel.responseText);
 	    
 	    
-	    var datab = element.srcElement.responseText;
+	    var datab = element.target.responseText;
 	    
 	    var data = JSON.parse(datab);
 
@@ -54,12 +53,10 @@ function refrechMember(element)
 	    messageDraw(data);
 	    
 	    var elememToModif = document.getElementById(data.user_name);
-	    elememToModif.innerHTML = "";
+	    var nameMember = elememToModif.querySelector("h3");
 	    
-	    var nameMember = document.createElement("h3");	    
 	    nameMember.innerHTML = data.user_name +" : "+data.new_value;
-	    elememToModif.appendChild(nameMember);
-
+	    
 
 	    
 //    document.getElementById(element.)
@@ -138,6 +135,10 @@ function createMember(objMember)
     
     var nameMember = document.createElement("h3");
     nameMember.innerHTML = objMember.name +" : "+objMember.value;
+    
+    var img = document.createElement("img");	    
+    img.src = "/"+objMember.image;
+    member.appendChild(img);
     
 
     member.appendChild(nameMember);

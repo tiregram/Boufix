@@ -29,14 +29,14 @@
 	  <div class="leter14">N</div>
 	  <div class="leter15">O</div>
 	  <div class="leter16">P</div>
-	  <div class="leter17">K</div>
+	  <div class="leter17">Q</div>
 	  <div class="leter18">R</div>
 	  <div class="leter19">S</div>
 	  <div class="leter20">T</div>
 	  <div class="leter21">U</div>
 	  <div class="leter22">V</div>
 	  <div class="leter23">W</div>
-	  <div class="leter24">x</div>
+	  <div class="leter24">X</div>
 	  <div class="leter25">Y</div>
 	  <div class="leter26">Z</div>
 	</div>
@@ -47,8 +47,7 @@
 
 
     <div id="logPanel" class="panel hide">
-
-      <h2 class="name">none</h2>
+      <div id="" class="close">X</div>
       <div id="logList">
 	
       </div>
@@ -57,49 +56,48 @@
 
     <div id="panelChose" class="panel hide">
       <div id="closePanel" class="close">X</div>
+      <div id="showLogPanel" class="option">Log</div>
       
       <h2 class="name">none</h2>
       <h4>Votre Compte:
-      <b class="value">none</b></h4>
-      <div class="range">
-	
-	<div class="add">
-	  <spam>R</spam>
-	  <input oninput="outAdd.value = rangeAdd.value"
-		 name="rangeAdd"
-		 id="rangeAdd"
-		 type="range"
-		 min="1"
-		 max="20"
-		 value="1">
-	    <output id="outAdd" name="outAdd">1</output>
-	    <button id="buttonPanelAdd">+</button>
-	</div>
-	<br>
-	<div class="sub">
-	  <spam>R</spam>
-	  <input oninput="outSub.value = rangeSub.value"
-		 name="rangeSub"
-		 id="rangeSub"
-		 type="range"
-		 min="1"
-		 max="20"
-		 value="1">
-	    <output id="outSub" name="outSub">1</output>
-	    <button id="buttonPanelSub" >-</button>
-	</div>
+	<b class="value">none</b></h4>
 
-	
+
+    <div class="range" style="display:none">	
+      <div class="add">
+	<spam>R</spam>
+	<input oninput="outAdd.value = rangeAdd.value"
+	       name="rangeAdd"
+	       id="rangeAdd"
+	       type="range"
+	       min="1"
+	       max="20"
+	       value="1">
+	<output id="outAdd" name="outAdd">1</output>
+	<button id="buttonPanelAdd">+</button>
       </div>
-      <div class="choses">
-
+      <br>
+      <div class="sub">
+	<spam>R</spam>
+	<input oninput="outSub.value = rangeSub.value"
+	       name="rangeSub"
+	       id="rangeSub"
+	       type="range"
+	       min="1"
+	       max="20"
+	       value="1">
+	<output id="outSub" name="outSub">1</output>
+	<button id="buttonPanelSub" >-</button>
       </div>
-
     </div>
-
+    
+    <div class="choses"></div>
+    </div>
+    
 
     <div id="messContener"></div>
     
+    <script src="{% static 'snackix/js/panelLog.js' %}"></script>
     <script src="{% static 'snackix/js/message.js' %}"></script>
     <script src="{% static 'snackix/js/panelChose.js' %}"></script>
     <script src="{% static 'snackix/js/managerConso.js' %}"></script>

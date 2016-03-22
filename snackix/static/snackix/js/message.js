@@ -19,7 +19,11 @@ function messageDraw(inf)
     
     setTimeout(function()
 	       {
-		   mess.remove();
-	       },5000);
+		   mess.className = "old";
+		   setTimeout(function(){
+		       mess.remove();
+		   },1000);
+	       }
+	       ,5000);
 	  
 }
