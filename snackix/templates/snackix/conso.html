@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="product">
+            <div class="graph">
+                <ul>
+                {% for a in logs %}
+                <li>{{a.dcount}}:{{a.product__name}}</li>
+                {% endfor %}
+                </ul>
+            </div>
+            <div class="tab">
+
+                <ul>
+                    {% for a in  members %}
+                    <li>{{a.dcount}}:{{a.user__name}}</li>
+                    {% endfor %}
+                </ul>
+
+            </div>
+        </div>
+    </body>
+</html>

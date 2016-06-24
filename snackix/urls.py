@@ -11,5 +11,7 @@ urlpatterns = [
     url(r"^ajax/product/all",views.ajax_get_all_product,name="panel"),    
     url(r"^ajax/one/(?P<user_name>[a-zA-Z0-9]+)",views.ajax_get_one_menber,name="panel"),    
     url(r"^aply/(?P<user_name>[a-zA-Z0-9]+)/(?P<product>[a-zA-Z0-9 ]+)",views.ajax_aply_product,name="aply product"),
-    url(r"^",views.panel,name="panel"),    
+    url(r"^show/",views.show_consomation,name="dashboard"),
+    url(r"^",views.panel,name="panel"),
+    
 ]

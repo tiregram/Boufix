@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
+import ldap
+from django_auth_ldap.config import LDAPSearch, GroupOfNamesType
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -71,6 +73,47 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'eatix.wsgi.application'
+
+AUTHENTICATION_BACKENDS = (
+    'django_auth_ldap.backend.LDAPBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+AUTH_LDAP_SERVER_URI = "ldaps://ldapix.clubnix.esiee.fr:636"
+
+AUTH_LDAP_BIND_DN = ""
+AUTH_LDAP_BIND_PASSWORD = ""
+
+certfile = '/etc/ssl/certs/nix_ca.pem'
+ldap.set_option(ldap.OPT_X_TLS_CACERTFILE, certfile)
+
+#
+#AUTH_LDAP_USER_SEARCH = LDAPSearch("ou=People,dc=clubnix,dc=org",
+#                                   ldap.SCOPE_SUBTREE, "(uid=%(user)s)")
+
+AUTH_LDAP_USER_SEARCH = LDAPSearch("ou=People,dc=clubnix,dc=org", ldap.SCOPE_SUBTREE, "(uid=%(user)s)")
+
+AUTH_LDAP_ALWAYS_UPDATE_USER = False
+
+
+#AUTH_LDAP_GROUP_TYPE = GroupOfNamesType()
+
+#AUTH_LDAP_USER_DN_TEMPLATE = "uid=%(user)s,ou=users,dc=example,dc=com"
+
+AUTH_LDAP_START_TLS = False
+
+############################## django-auth-ldap ##############################
+if DEBUG:
+    import logging, logging.handlers
+    logfile = "/tmp/django-ldap-debug.log"
+    my_logger = logging.getLogger('django_auth_ldap')
+    my_logger.setLevel(logging.DEBUG)
+
+    handler = logging.handlers.RotatingFileHandler(
+       logfile, maxBytes=1024 * 500, backupCount=5)
+
+    my_logger.addHandler(handler)
+############################ end django-auth-ldap ############################
 
 
 # Database

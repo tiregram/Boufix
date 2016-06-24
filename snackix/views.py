@@ -6,11 +6,31 @@ import datetime as dt
 import json
 
 # Create your views here.
-def panel(request):    
+def panel(request):
     all_menbers = Member.objects.all()
     
     context = {"menbers":all_menbers}
     return render(request,'snackix/index.html',context)
+
+from django.contrib.auth.decorators import login_required
+from django.db.models import Count
+from datetime import date
+from datetime import timedelta
+
+@login_required
+def show_consomation(request):
+    all_product = Product.objects.all()
+
+    date_end  = date.today()
+    date_start  = date.today() - timedelta(days=30);
+
+    all_logs = Logs.objects.filter(date__range=[date_start,date_end]).values("product__name").annotate(dcount=Count('product_id')).order_by("-dcount")
+    all_members = Logs.objects.filter(date__range=[date_start,date_end]).values("user__name").annotate(dcount=Count('user_id')).order_by("-dcount")
+
+    print(all_members)
+    context = {"logs":all_logs,"members":all_members}
+
+    return render(request,"snackix/conso.html",context)
 
 
 def ajax_sub_credit(self,user_name,value):
