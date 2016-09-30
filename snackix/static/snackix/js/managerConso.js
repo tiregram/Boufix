@@ -5,7 +5,6 @@ window.memberList = {};
 
 window.onload = function() {
 
-    
     httpRequest = new XMLHttpRequest();
     httpRequest.onreadystatechange =  manageAjaxAnswer;
     httpRequest.open('GET','http://127.0.0.1:8000/panel/ajax/all',true);
@@ -13,26 +12,22 @@ window.onload = function() {
 
     logPanelInit();
     panelInit();
-    
-    var cont = document.getElementById("cont");
-    var leftsc = document.getElementById("")
-    cont.scroolLeft += 10;
-    
 
-		
-    
+    var cont = document.getElementById("cont");
+//    var leftsc = document.getElementById("")
+    cont.scroolLeft += 10;
+
     var selection = document.querySelectorAll(".leters > div");
 
-    for(var leter in selection)
-    {
-	selection[leter]
-	    .addEventListener("click",function(elem)
-					  {
-					      updateMember(elem.target.innerHTML);
-					  }
-					 );	
-    }
-    
+    Array.prototype.forEach.call(
+        selection,function(elem){
+        	  elem.addEventListener("click",function(elem)
+					                        {
+					                            updateMember(elem.target.innerHTML);
+					                        }
+					                       )
+    });
+
 }
 
 function refrechMember(element)
